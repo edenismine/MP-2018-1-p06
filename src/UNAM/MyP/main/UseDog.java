@@ -1,6 +1,5 @@
 package UNAM.MyP.main;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -18,26 +17,26 @@ public class UseDog {
             System.out.println("Choose what you want to do with your pet:");
             System.out.println("1. pet it");
             System.out.println("2. kick it");
-            System.out.println("3. exit");
+            System.out.println("3. feed it");
+            System.out.println("4. exit");
             option = input.nextInt();
             switch (option) {
                 case 1:
-                    p.setMood("happy");
+                    p.pet();
                     break;
                 case 2:
-                    p.setMood("angry");
+                    p.kick();
                     break;
                 case 3:
+                    p.feed();
+                    break;
+                case 4:
                     System.out.println("Goodbye!");
                     break;
+                default:
+                    System.out.println("Invalid option, try again!");
             }
-            if (Objects.equals(p.mood, "happy")) {
-                p.play();
-                p.eat();
-            } else {
-                p.attack();
-            }
-        } while (option != 3);
+        } while (option != 4);
 
     }
 
