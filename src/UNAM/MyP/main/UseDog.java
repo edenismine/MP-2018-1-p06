@@ -14,6 +14,8 @@ public class UseDog {
 
         int option;
         do {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             System.out.println("Choose what you want to do with your pet:");
             System.out.println("1. pet it");
             System.out.println("2. kick it");
@@ -35,6 +37,12 @@ public class UseDog {
                     break;
                 default:
                     System.out.println("Invalid option, try again!");
+                    break;
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
             }
         } while (option != 4);
 

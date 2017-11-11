@@ -1,5 +1,6 @@
 package UNAM.MyP.main;
 
+import java.util.Random;
 
 class Dog {
     private DogState angry;
@@ -7,35 +8,49 @@ class Dog {
     private DogState sad;
     private DogState sleeping;
     private DogState dogState;
+    private final Random random = new Random();
+    private int positiveStimulus;
+    private int negativeStimulus;
 
     Dog() {
         this.angry = new Angry();
         this.happy = new Happy();
         this.sad = new Sad();
         this.sleeping = new Sleeping();
-        this.dogState = new Happy();
+        this.dogState = this.initState();
     }
 
-    void setState(DogState newDogSate) {
+    private DogState initState() {
+        int randInt = random.nextInt(4);
+        DogState[] states = {getAngry(), getHappy(), getSad(), getSleeping()};
+        return states[randInt];
+    }
+
+    private void setState(DogState newDogSate) {
         this.dogState = newDogSate;
+        this.dogState.message();
     }
 
 
-    void play() {
+    private void play() {
         System.out.println("the dog plays with you.");
     }
 
-    void attack() {
-        System.out.println("the dogs wants to bite you.");
+    private void attack() {
+        System.out.println("the dog bit you!");
         System.exit(1);
     }
 
-    void eat() {
-        System.out.println("the dog eats happily!");
+    private void eat() {
+        System.out.println("the dog eats the food!");
+    }
+
+    private void growl() {
+        System.out.println("the dog growls at you.");
     }
 
 
-    void idle() {
+    private void idle() {
         System.out.println("the dog sits idly. He seems to be trying to figure out what to do next.");
     }
 
@@ -60,6 +75,22 @@ class Dog {
         this.dogState.feed();
     }
 
+    private DogState getAngry() {
+        return angry;
+    }
+
+    private DogState getHappy() {
+        return happy;
+    }
+
+    private DogState getSad() {
+        return sad;
+    }
+
+    private DogState getSleeping() {
+        return sleeping;
+    }
+
     private interface DogState {
         /**
          * Reaction when the dog is pet.
@@ -75,23 +106,40 @@ class Dog {
          * Reaction when the dog is fed.
          */
         void feed();
+
+        /**
+         * Gets a description of the dog's state.
+         */
+        void message();
     }
 
     private class Angry implements DogState {
 
         @Override
         public void pet() {
-            // TODO: implement
+            this.feed();
         }
 
         @Override
         public void kick() {
-            // TODO: implement
+            attack();
         }
 
         @Override
         public void feed() {
-            // TODO: implement
+            positiveStimulus++;
+            growl();
+            if (positiveStimulus > 2) {
+                positiveStimulus = 0;
+                setState(getHappy());
+            } else {
+                this.message();
+            }
+        }
+
+        @Override
+        public void message() {
+            System.out.println("The dog seems uneasy. It must be angry.");
         }
     }
 
@@ -99,17 +147,34 @@ class Dog {
 
         @Override
         public void pet() {
-            // TODO: implement
+            play();
+            this.message();
         }
 
         @Override
         public void kick() {
-            // TODO: implement
+            growl();
+            setState(getAngry());
         }
 
         @Override
         public void feed() {
-            // TODO: implement
+            eat();
+            int randInt = random.nextInt(2);
+            switch (randInt) {
+                case 0:
+                    setState(getHappy());
+                    break;
+                default:
+                    setState(getSleeping());
+                    setState(getHappy());
+                    break;
+            }
+        }
+
+        @Override
+        public void message() {
+            System.out.println("The dog is wagging its tail. It must be happy!");
         }
     }
 
@@ -117,17 +182,30 @@ class Dog {
 
         @Override
         public void pet() {
-            // TODO: implement
+            play();
+            setState(getHappy());
         }
 
         @Override
         public void kick() {
-            // TODO: implement
+            negativeStimulus++;
+            if (negativeStimulus > 2) {
+                negativeStimulus = 0;
+                setState(getAngry());
+            } else {
+                this.message();
+            }
         }
 
         @Override
         public void feed() {
-            // TODO: implement
+            eat();
+            setState(getHappy());
+        }
+
+        @Override
+        public void message() {
+            System.out.println("The dog's ears are down. It looks sad.");
         }
     }
 
@@ -135,17 +213,31 @@ class Dog {
 
         @Override
         public void pet() {
-            // TODO: implement
+            throw new UnsupportedOperationException();
         }
 
         @Override
         public void kick() {
-            // TODO: implement
+            throw new UnsupportedOperationException();
         }
 
         @Override
         public void feed() {
-            // TODO: implement
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void message() {
+            System.out.print("The dog is sleeping");
+            for (char x : ".....".toCharArray()) {
+                System.out.print(x);
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+            setState(getHappy());
         }
     }
 }
