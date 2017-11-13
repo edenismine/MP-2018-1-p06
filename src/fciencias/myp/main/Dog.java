@@ -1,4 +1,6 @@
-package UNAM.MyP.main;
+package fciencias.myp.main;
+
+import fciencias.clutil.CLUtil;
 
 import java.util.Random;
 
@@ -61,7 +63,7 @@ class Dog {
      * @return a random context.
      */
     private DogState initState() {
-        int randInt = random.nextInt(4);
+        int randInt = random.nextInt(3);
         DogState[] states = {getAngry(), getHappy(), getSad()};
         return states[randInt];
     }
@@ -69,7 +71,7 @@ class Dog {
     /**
      * Sets the current context to the provided context and prints its corresponding message.
      *
-     * @param newDogSate the dog's new context.
+     * @param newDogSate The dog's new context.
      */
     private void setState(DogState newDogSate) {
         this.dogState = newDogSate;
@@ -80,14 +82,14 @@ class Dog {
      * Describes what happens when the dog plays.
      */
     private void play() {
-        System.out.println("the dog plays with you.");
+        System.out.println("The dog plays with you.");
     }
 
     /**
      * Describes what happens when the dog attacks. Exits the program.
      */
     private void attack() {
-        System.out.println("the dog bit you!");
+        System.out.println("The dog bit you!");
         System.exit(1);
     }
 
@@ -95,14 +97,14 @@ class Dog {
      * Describes what happens when the dog eats.
      */
     private void eat() {
-        System.out.println("the dog eats the food!");
+        System.out.println("The dog eats the food!");
     }
 
     /**
      * Describes what happens when the dog growls.
      */
     private void growl() {
-        System.out.println("the dog growls at you.");
+        System.out.println("The dog growls at you.");
     }
 
     /**
@@ -127,36 +129,36 @@ class Dog {
     }
 
     /**
-     * Retrieves the dog's Angry context.
+     * Retrieves The dog's Angry context.
      *
-     * @return the dog's Angry context.
+     * @return The dog's Angry context.
      */
     private DogState getAngry() {
         return angry;
     }
 
     /**
-     * Retrieves the dog's Happy context.
+     * Retrieves The dog's Happy context.
      *
-     * @return the dog's Happy context.
+     * @return The dog's Happy context.
      */
     private DogState getHappy() {
         return happy;
     }
 
     /**
-     * Retrieves the dog's Sad context.
+     * Retrieves The dog's Sad context.
      *
-     * @return the dog's Sad context.
+     * @return The dog's Sad context.
      */
     private DogState getSad() {
         return sad;
     }
 
     /**
-     * Retrieves the dog's Sleeping context.
+     * Retrieves The dog's Sleeping context.
      *
-     * @return the dog's Sleeping context.
+     * @return The dog's Sleeping context.
      */
     private DogState getSleeping() {
         return sleeping;
@@ -177,7 +179,7 @@ class Dog {
         void kick();
 
         /**
-         * Reaction when the dog is fed.
+         * Reaction when he dog is fed.
          */
         void feed();
 
@@ -317,11 +319,7 @@ class Dog {
             System.out.print("The dog is sleeping");
             for (char x : ".....".toCharArray()) {
                 System.out.print(x);
-                try {
-                    Thread.sleep(1000);
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
+                CLUtil.sleep(1000);
             }
             setState(getHappy());
         }

@@ -5,4 +5,4 @@
  *
  * @author Luis Daniel Aragon Bermudez 416041271
  */
-package UNAM.MyP.main;
+package fciencias.myp.main;
