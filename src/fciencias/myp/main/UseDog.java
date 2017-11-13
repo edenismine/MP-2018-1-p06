@@ -20,7 +20,7 @@ public class UseDog {
         do {
             CLUtil.flush();
             System.out.println("Choose what you want to do with your pet:");
-            System.out.println("> " + CLUtil.G + "pet" + CLUtil.N + " to pet it");
+            System.out.println("> " + CLUtil.G + "pet " + CLUtil.N + " to pet it");
             System.out.println("> " + CLUtil.G + "kick" + CLUtil.N + " to kick it");
             System.out.println("> " + CLUtil.G + "feed" + CLUtil.N + " to feed it");
             System.out.println("> " + CLUtil.G + "exit" + CLUtil.N + " to exit the program");

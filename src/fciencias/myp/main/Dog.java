@@ -321,7 +321,7 @@ class Dog {
                 System.out.print(x);
                 CLUtil.sleep(1000);
             }
-            setState(getHappy());
+            System.out.print('\n');
         }
     }
 }
