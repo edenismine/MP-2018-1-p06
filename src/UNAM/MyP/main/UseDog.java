@@ -2,13 +2,15 @@ package UNAM.MyP.main;
 
 import java.util.Scanner;
 
-
+/**
+ * Demo of the Dog class implemented using the state design pattern.
+ *
+ * @author Luis Daniel Aragon Bermudez 416041271
+ */
 public class UseDog {
 
 
     public static void main(String[] args) {
-
-
         Dog p = new Dog();
         Scanner input = new Scanner(System.in);
 

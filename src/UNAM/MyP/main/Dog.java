@@ -2,16 +2,51 @@ package UNAM.MyP.main;
 
 import java.util.Random;
 
+/**
+ * Implementation of a Dog using the State design pattern.
+ * Has four states (angry, happy, sad, sleeping) and three
+ * possible interactions (pet, feed, kick), as well as four
+ * reactions (play, eat, attack, growl).
+ *
+ * @author Luis Daniel Aragon Bermudez 416041271
+ */
 class Dog {
-    private DogState angry;
-    private DogState happy;
-    private DogState sad;
-    private DogState sleeping;
-    private DogState dogState;
+    /**
+     * Random.
+     */
     private final Random random = new Random();
+    /**
+     * Angry context.
+     */
+    private DogState angry;
+    /**
+     * Happy context.
+     */
+    private DogState happy;
+    /**
+     * Sad context.
+     */
+    private DogState sad;
+    /**
+     * Sleeping context.
+     */
+    private DogState sleeping;
+    /**
+     * Current context.
+     */
+    private DogState dogState;
+    /**
+     * Current positive stimulus level.
+     */
     private int positiveStimulus;
+    /**
+     * Current negative stimulus level.
+     */
     private int negativeStimulus;
 
+    /**
+     * Creates a dog with a random state.
+     */
     Dog() {
         this.angry = new Angry();
         this.happy = new Happy();
@@ -20,38 +55,54 @@ class Dog {
         this.dogState = this.initState();
     }
 
+    /**
+     * Randomly returns one of the dog's states.
+     *
+     * @return a random context.
+     */
     private DogState initState() {
         int randInt = random.nextInt(4);
-        DogState[] states = {getAngry(), getHappy(), getSad(), getSleeping()};
+        DogState[] states = {getAngry(), getHappy(), getSad()};
         return states[randInt];
     }
 
+    /**
+     * Sets the current context to the provided context and prints its corresponding message.
+     *
+     * @param newDogSate the dog's new context.
+     */
     private void setState(DogState newDogSate) {
         this.dogState = newDogSate;
         this.dogState.message();
     }
 
-
+    /**
+     * Describes what happens when the dog plays.
+     */
     private void play() {
         System.out.println("the dog plays with you.");
     }
 
+    /**
+     * Describes what happens when the dog attacks. Exits the program.
+     */
     private void attack() {
         System.out.println("the dog bit you!");
         System.exit(1);
     }
 
+    /**
+     * Describes what happens when the dog eats.
+     */
     private void eat() {
         System.out.println("the dog eats the food!");
     }
 
+    /**
+     * Describes what happens when the dog growls.
+     */
     private void growl() {
         System.out.println("the dog growls at you.");
-    }
-
-
-    private void idle() {
-        System.out.println("the dog sits idly. He seems to be trying to figure out what to do next.");
     }
 
     /**
@@ -75,22 +126,45 @@ class Dog {
         this.dogState.feed();
     }
 
+    /**
+     * Retrieves the dog's Angry context.
+     *
+     * @return the dog's Angry context.
+     */
     private DogState getAngry() {
         return angry;
     }
 
+    /**
+     * Retrieves the dog's Happy context.
+     *
+     * @return the dog's Happy context.
+     */
     private DogState getHappy() {
         return happy;
     }
 
+    /**
+     * Retrieves the dog's Sad context.
+     *
+     * @return the dog's Sad context.
+     */
     private DogState getSad() {
         return sad;
     }
 
+    /**
+     * Retrieves the dog's Sleeping context.
+     *
+     * @return the dog's Sleeping context.
+     */
     private DogState getSleeping() {
         return sleeping;
     }
 
+    /**
+     * Interface that describes a valid state for a Dog.
+     */
     private interface DogState {
         /**
          * Reaction when the dog is pet.
@@ -113,6 +187,9 @@ class Dog {
         void message();
     }
 
+    /**
+     * DogState of an Angry dog and its corresponding reactions.
+     */
     private class Angry implements DogState {
 
         @Override
@@ -143,6 +220,9 @@ class Dog {
         }
     }
 
+    /**
+     * DogState of a Happy dog and its corresponding reactions.
+     */
     private class Happy implements DogState {
 
         @Override
@@ -178,6 +258,9 @@ class Dog {
         }
     }
 
+    /**
+     * DogState of a Sad dog and its corresponding reactions.
+     */
     private class Sad implements DogState {
 
         @Override
@@ -209,6 +292,9 @@ class Dog {
         }
     }
 
+    /**
+     * DogState of a Sleeping dog and its corresponding reactions.
+     */
     private class Sleeping implements DogState {
 
         @Override
