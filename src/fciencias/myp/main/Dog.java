@@ -196,7 +196,15 @@ class Dog {
 
         @Override
         public void pet() {
-            this.feed();
+            positiveStimulus++;
+            if (positiveStimulus > 2) {
+                play();
+                positiveStimulus = 0;
+                setState(getHappy());
+            } else {
+                growl();
+                this.message();
+            }
         }
 
         @Override
@@ -207,11 +215,12 @@ class Dog {
         @Override
         public void feed() {
             positiveStimulus++;
-            growl();
             if (positiveStimulus > 2) {
+                eat();
                 positiveStimulus = 0;
                 setState(getHappy());
             } else {
+                growl();
                 this.message();
             }
         }
