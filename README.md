@@ -69,7 +69,7 @@ The state design pattern is a behavioral pattern; it can be described as an obje
 
 Included, there’s a small implementation of a Dog that uses this design pattern and has the following state graph:
 
-<img src="https://imgur.com/d3pzI7P.png" alt="State diagram of the Dog class. The green boxes represent the valid states, the red boxes represent the possible interactions and the yellow boxes represent the dog’s possible reactions." width="381" height="240" />
+<img src="https://imgur.com/d3pzI7P.png" alt="State diagram of the Dog class. The green boxes represent the valid states, the red boxes represent the possible interactions and the yellow boxes represent the dog’s possible reactions." />
 
 The following rules are also coded in:
 
