@@ -34,7 +34,7 @@
 import subprocess, os
 if not os.path.isfile("build/jar/Dog.jar"):
     subprocess.call(['ant', 'jar'])
-    subprocess.call(['java', '-jar', 'build/jar/Dog.jar'])
+subprocess.call(['java', '-jar', 'build/jar/Dog.jar'])
 </echo>
         <chmod file="./dog" perm="+x"/>
     </target>
