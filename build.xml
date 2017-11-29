@@ -58,7 +58,7 @@
     </target>
     <target name="doc">
         <mkdir dir="doc"/>
-        <javadoc sourcepath="src" destdir="doc" access="private" windowtitle="Dog: State Design Patter implementation"
+        <javadoc sourcepath="src" destdir="doc" access="private" windowtitle="Dog: State Design Pattern implementation"
                  doctitle="network" author="true" version="true"/>
     </target>
     <target name="all" depends="doc,executable"/>

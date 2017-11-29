@@ -22,3 +22,7 @@
 .idea/
 *.iml
 out/
+
+# pandoc
+pandoc.md
+media/
