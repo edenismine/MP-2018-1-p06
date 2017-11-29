@@ -46,7 +46,7 @@ D’s now been visited (all its ex-nodes have been queued), E has been reached. 
 
 **E** &gt; A:0<sub>A</sub>, B:13<sub>D</sub>, C:5<sub>A</sub>, D:7<sub>C</sub>, E:11<sub>D</sub>
 
-<img src="https://i.imgur.com/S7POSLv.png" alt="Graph G" width="222" height="240" style="text-align: center;"/>
+<img src="https://i.imgur.com/S7POSLv.png" alt="Graph G"/>
 
 ### Appalling Prose and the Shortest Path
 
@@ -69,7 +69,7 @@ The state design pattern is a behavioral pattern; it can be described as an obje
 
 Included, there’s a small implementation of a Dog that uses this design pattern and has the following state graph:
 
-<img src="https://i.imgur.com/d3pzI7P.png" alt="State diagram of the Dog class. The green boxes represent the valid states, the red boxes represent the possible interactions and the yellow boxes represent the dog’s possible reactions." width="381" height="240" style="text-align: center;"/>
+<img src="https://imgur.com/d3pzI7P.png" alt="State diagram of the Dog class. The green boxes represent the valid states, the red boxes represent the possible interactions and the yellow boxes represent the dog’s possible reactions." width="381" height="240" />
 
 The following rules are also coded in:
 
@@ -107,8 +107,10 @@ The included `build.xml` provides the following commands:
 Bibliographgy
 -------------
 
--   [*Arpaci-Dusseau*, 2014](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf)
+-   ["Operating Systems: Three Easy Pieces (Chapter 7: Scheduling Introduction)" - *Arpaci-Dusseau*, 2014](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf)
 -   ["Semaphore (programming)" - *Wikipedia*, 2017](https://en.wikipedia.org/wiki/Semaphore_(programming))
+-   ["The Little Book of Semaphores" - *Downey, Allen B.*, 2016](http://greenteapress.com/semaphores/)
+-   ["Over de sequentialiteit van procesbeschrijvingen" - *Dijkstra, Edsger W.* 1962 or 1963](http://www.cs.utexas.edu/users/EWD/ewd00xx/EWD35.PDF)
 -   ["Dijkstra's algorithm" - *Wikipedia*, 2017](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 -   ["State Design Pattern" - *SourceMaking*, 2017](https://sourcemaking.com/design_patterns/state)
 
@@ -121,3 +123,4 @@ For more information on the tools used to build, create and run this program ref
 -   [Python](https://www.python.org/) was used for the execution script.
 -   [JetBrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) was used as the primary editor.
 -   [Graph Online](http://graphonline.ru/en/) was used to create the directed graph G.
+
